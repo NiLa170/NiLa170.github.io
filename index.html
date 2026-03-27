@@ -2,14 +2,34 @@
 <html>
 <head>
     <title>My Data Visualization Site</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>This site will soon contain interactive data visualizations about crime in San Francisco.</p>
-    <img src="larceny_time_series.png" width="700">
+    <header>
+        <h1>San Francisco Crime Visualizations</h1>
+    </header>
 
-    <iframe src="larceny_heatmap.html" width="700" height="500"></iframe>
+    <main>
+        <section>
+            <p>
+                Explore interactive data visualizations about crime trends in San Francisco.
+            </p>
+        </section>
 
-    <iframe src="larceny_hourly_animation.html" width="700" height="500"></iframe>
+        <section>
+            <h2>Larceny Over Time</h2>
+            <img src="larceny_time_series.png" width="700">
+        </section>
+
+        <section>
+            <h2>Crime Heatmap</h2>
+            <iframe src="larceny_heatmap.html"></iframe>
+        </section>
+
+        <section>
+            <h2>Hourly Crime Animation</h2>
+            <iframe src="larceny_hourly_animation.html"></iframe>
+        </section>
+    </main>
 </body>
 </html>
