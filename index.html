@@ -1,45 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Data Visualization Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Did Larceny/Theft Drop in 2020?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Examining the Association Between Vehicle Break-Ins (‘Bipping’) and Theft Trends in San Francisco</h1>
+        <p class="kicker">San Francisco Crime Story</p>
+        <h1>Why Did Larceny/Theft Drop So Sharply from 2019 to 2020?</h1>
+        <p class="dek">
+            A short data story based on SF Police incident records: the biggest one-year break in the series lines up with the first COVID-19 shutdown year.
+        </p>
     </header>
 
     <main>
         <section>
+            <h2>1) The Pattern We Want to Explain</h2>
             <p>
-                San Francisco's crime data presents the development of different crime types over time in detail. 
-                We filtered the data to focus on a group of categories named *Personal Focus Crimes*, which include various types of crimes such as assault, robbery, and larceny/ theft.
-                Among these, larceny/ theft stands out as the most frequent crime, and showing the most interesting development over the last two decades.
+                This story uses the merged <em>Personal Focus Crimes</em> dataset from class, filtered to <strong>Larceny/Theft</strong> incidents in San Francisco.
+                In this category, the count falls from <strong>44,749 incidents in 2019</strong> to <strong>28,727 in 2020</strong>, a <strong>35.8% drop</strong>.
+                The change is too large to ignore, so the question is simple: what changed in the city that year?
+            </p>
+            <figure>
+                <img src="larceny_time_series.png" alt="Time series of Larceny/Theft in San Francisco from 2003 to 2025">
+                <figcaption>
+                    <strong>Figure 1.</strong> Larceny/Theft over time (2003-2025). The clearest discontinuity is the 2019 to 2020 break.
+                    Monthly counts in this dataset also show the timing: 3,270 incidents in February 2020, then 2,387 in March and 1,788 in April.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>2) Where Theft Is Concentrated</h2>
+            <p>
+                The map summarizes where theft has historically concentrated. Hotspots cluster in central commercial and visitor-heavy areas, consistent with places that usually have high foot traffic, parked cars, shopping, and tourism.
+                In a normal year, these are high-opportunity environments for larceny.
+            </p>
+            <figure>
+                <iframe src="larceny_heatmap.html" title="Heatmap of Larceny/Theft incidents in San Francisco"></iframe>
+                <figcaption>
+                    <strong>Figure 2.</strong> Geographic concentration of Larceny/Theft incidents. The strongest density appears in and around central districts.
+                    Between 2019 and 2020, the largest district-level drops in this dataset are also in Central (-53.5%) and Tenderloin (-54.6%), which matches the idea that reduced central-city activity mattered.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>3) How Daily Timing Changed</h2>
+            <p>
+                The hourly animation shows that 2020 is not only lower in total volume, it also shifts the daily profile.
+                Pre-2020 years are heavily concentrated in afternoon/evening windows, while 2020 becomes flatter with relatively more night share.
+                One way to read this is that routine daytime movement patterns were disrupted, and theft opportunities changed with them.
+            </p>
+            <figure>
+                <iframe src="larceny_hourly_animation.html" title="Animated hourly distribution of Larceny/Theft by year"></iframe>
+                <figcaption>
+                    <strong>Figure 3.</strong> Hour-of-day pattern by year (normalized within each year).
+                    In this dataset, the midnight-5am share rises from 11.1% (2019) to 14.9% (2020), while the whole curve is lower in absolute terms.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>4) Possible Causes of the 2020 Drop</h2>
+            <p>
+                The data cannot prove one single cause, but the timing and external evidence point to a strong multi-factor explanation:
+            </p>
+            <p>
+                <strong>Cause A: Sudden mobility restrictions.</strong>
+                San Francisco's Health Officer order dated <strong>March 16, 2020</strong> required residents to shelter in place, directed non-essential business operations to stop at physical locations, and restricted non-essential travel.
+                This starts <strong>March 17, 2020</strong>, exactly when our monthly counts begin to collapse.
+            </p>
+            <p>
+                <strong>Cause B: Fewer commuters and visitors in the city core.</strong>
+                MTC transit statistics show weekday BART exits plunging from 409,515 (March 2019) to 166,574 (March 2020), and from 414,397 (April 2019) to 25,136 (April 2020).
+                SF Travel also reports that San Francisco's daily visitors averaged 71,805 in 2019 versus 32,281 in 2020.
+                Fewer people and fewer parked/visited areas mean fewer easy theft opportunities.
+            </p>
+            <p>
+                <strong>Cause C: A broader property-crime downturn in 2020.</strong>
+                FBI national statistics report a decline in property crime (and specifically larceny-theft) from 2019 to 2020.
+                That broader background trend is consistent with what we observe locally in SF.
+            </p>
+            <p>
+                There is also a compositional clue inside the local data: <em>Theft, From Locked Vehicle, &gt;$950</em> drops from 18,769 in 2019 to 9,695 in 2020 (-48.3%).
+                Because theft from vehicles is a major share of SF larceny, this single subtype helps explain much of the total decline.
             </p>
         </section>
 
         <section>
-            <h2>Larceny Over Time</h2>
-            <img src="larceny_time_series.png" width="700">
+            <h2>5) What We Can and Cannot Conclude</h2>
             <p>
-                Here is some space for interpretations.
+                The safest conclusion is not "crime suddenly got solved in 2020."
+                A better conclusion is that <strong>routine activity changed dramatically</strong>:
+                travel collapsed, public space use shifted, and opportunity structures for theft changed.
+                As reopening progressed, the series partially rebounded in 2021 and 2022, which is also what we would expect from an opportunity-based explanation.
+            </p>
+            <p>
+                Finally, this is police-reported incident data, so it reflects both behavior and reporting/enforcement patterns.
+                That limitation matters whenever we interpret year-to-year changes.
             </p>
         </section>
 
         <section>
-            <h2>Crime Heatmap</h2>
-            <iframe src="larceny_heatmap.html"></iframe>
-            <p>
-                Here is some space for interpretations.
-            </p>
-        </section>
-
-        <section>
-            <h2>Hourly Crime Animation</h2>
-            <iframe src="larceny_hourly_animation.html"></iframe>
-            <p>
-                Here is some space for interpretations.
-            </p>
+            <h2>References</h2>
+            <ol>
+                <li>
+                    San Francisco Department of Public Health. Order of the Health Officer No. C19-07 (March 16, 2020).
+                    <a href="https://sfbos.org/sites/default/files/20200316_DPH_Order_of_the_Health_Officer_C19-07.pdf" target="_blank" rel="noopener noreferrer">https://sfbos.org/sites/default/files/20200316_DPH_Order_of_the_Health_Officer_C19-07.pdf</a>
+                </li>
+                <li>
+                    Metropolitan Transportation Commission. Monthly Transportation Statistics (BART ridership table).
+                    <a href="https://mtc.ca.gov/tools-resources/data-tools/monthly-transportation-statistics" target="_blank" rel="noopener noreferrer">https://mtc.ca.gov/tools-resources/data-tools/monthly-transportation-statistics</a>
+                </li>
+                <li>
+                    San Francisco Travel Association. San Francisco Tourism Beginning Long Road to Recovery.
+                    <a href="https://www.sftravel.com/media/press-release/san-francisco-tourism-beginning-long-road-to-recovery" target="_blank" rel="noopener noreferrer">https://www.sftravel.com/media/press-release/san-francisco-tourism-beginning-long-road-to-recovery</a>
+                </li>
+                <li>
+                    Federal Bureau of Investigation. FBI Releases 2020 Crime Statistics (published September 27, 2021).
+                    <a href="https://www.fbi.gov/news/press-releases/press-releases/fbi-releases-2020-crime-statistics" target="_blank" rel="noopener noreferrer">https://www.fbi.gov/news/press-releases/press-releases/fbi-releases-2020-crime-statistics</a>
+                </li>
+            </ol>
         </section>
     </main>
 </body>
