@@ -35,36 +35,35 @@ body {
 }
 
 /* Header */
-/* Header layout */
-.header-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
+.article-header {
     margin-bottom: 28px;
 }
 
-/* Logo column (stacked) */
-.logo-column {
+.title-row {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
     gap: 10px;
     flex-shrink: 0;
 }
 
-/* Logo styling */
+/* Override generic img styling for logos */
 .logo {
-    width: 60px;
+    width: 52px;
     height: auto;
-    border-radius: 6px;
-}
-
-/* Make header take remaining space */
-.article-header {
-    flex: 1;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 header {
-    margin-bottom: 28px;
+    margin-bottom: 0;
 }
 
 .kicker {
@@ -226,13 +225,10 @@ main::after {
 
 @media (max-width: 600px) {
 
-    .header-row {
-        flex-direction: column;
+    .title-row {
         align-items: flex-start;
-    }
-
-    .logo-column {
-        flex-direction: row;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .logo {
