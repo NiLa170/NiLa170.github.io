@@ -223,3 +223,19 @@ main::after {
         font-size: 1.15rem;
     }
 }
+
+@media (max-width: 600px) {
+
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-column {
+        flex-direction: row;
+    }
+
+    .logo {
+        width: 50px;
+    }
+}
