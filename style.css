@@ -35,6 +35,34 @@ body {
 }
 
 /* Header */
+/* Header layout */
+.header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+/* Logo column (stacked) */
+.logo-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Logo styling */
+.logo {
+    width: 60px;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Make header take remaining space */
+.article-header {
+    flex: 1;
+}
+
 header {
     margin-bottom: 28px;
 }
