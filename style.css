@@ -27,6 +27,22 @@ body {
     line-height: 1.7;
 }
 
+/* Full-width logo section */
+.full-width-logo {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
 /* Article container */
 .magazine {
     max-width: 660px;
